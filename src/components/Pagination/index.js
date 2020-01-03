@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
-const Pagination = ({ itemsPerPage, totalSize, onPreviousPage, onNextPage, currentPage }) => {
-  const [selectedLimit, setSelectedLimit] = useState(10);
+const Pagination = ({ itemsPerPage, currentPage, totalSize, onPreviousPage, onNextPage, onSelectLimitPerPage }) => {
   const limits = [10,15,20,30,50];
 
   return (
     <div>
       Rows per page 
-      <select name="limits" onChange={(e) => setSelectedLimit(e.target.value)}>
+      <select name="limits" onChange={(e) => onSelectLimitPerPage(e.target.value)}>
         {limits.map(limit => (
-          <option key={limit} value={limit} defaultValue={selectedLimit}>{limit}</option>
+          <option key={limit} value={itemsPerPage}>{limit}</option>
         ))}
       </select>
       {itemsPerPage} of {totalSize} / current page {currentPage}
