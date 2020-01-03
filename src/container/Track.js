@@ -54,7 +54,7 @@ const Tracks = () => {
       setCurrentPage(next);
     }
   }
-  console.log(currentPage)
+
   return (
     <section>
       <h1>Song search engine</h1>
