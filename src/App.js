@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <Home path="/" />
-        <Tracks path="/tracks" />
+        <Tracks path="tracks" />
       </Router>
     </div>
   );
