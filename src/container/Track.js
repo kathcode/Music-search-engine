@@ -6,6 +6,8 @@ import TrackList from '../components/TrackList';
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
 
+import './Track.css';
+
 const useSearchTrack = (track, page, limit) => {
   const [trackInfo, setTrackInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -26,6 +28,7 @@ const useSearchTrack = (track, page, limit) => {
             size: data.results['opensearch:totalResults'],
             limit: data.results['opensearch:itemsPerPage'],
           });
+          console.log(data.results);
         })
         .catch(() => console.log('error...'))
         .finally(() => setIsLoading(false));
@@ -61,7 +64,7 @@ const Tracks = () => {
   };
 
   return (
-    <section>
+    <section className="track-search">
       <h1>Song search engine</h1>
       <Search onClick={(track) => setSelectedTrack(track)} />
 

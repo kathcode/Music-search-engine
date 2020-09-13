@@ -1,23 +1,14 @@
 import React from 'react';
 
-import PlayIcon from '../../images/play.png';
+import CardStyled from '../../shared/components/card';
+import Grid from '@material-ui/core/Grid';
 
 const TrackList = ({ list }) => (
-  <div>
-    {list.map(track => (
-      <div key={track.listeners}>
-        <img width="30" src={PlayIcon} alt="Artist" />
-        <a
-          href={track.url}
-          title={track.name}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {track.name} - {track.artist}
-        </a>
-      </div>
+  <Grid container spacing={3}>
+    {list.map((track) => (
+      <CardStyled track={track} />
     ))}
-  </div>
+  </Grid>
 );
 
-export default TrackList
+export default TrackList;

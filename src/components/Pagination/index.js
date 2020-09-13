@@ -1,5 +1,11 @@
 import React from 'react';
 
+import './Pagination.css';
+
+// Material UI
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+
 const Pagination = ({
   itemsPerPage,
   currentPage,
@@ -12,9 +18,10 @@ const Pagination = ({
 
   return (
     <div>
-      Rows per page
-      <select
-        name="limits"
+      <label>Rows per page</label>
+      <Select
+        native
+        value={itemsPerPage}
         onChange={(e) => onSelectLimitPerPage(e.target.value)}
       >
         {limits.map((limit) => (
@@ -22,10 +29,26 @@ const Pagination = ({
             {limit}
           </option>
         ))}
-      </select>
-      {itemsPerPage} of {totalSize} / current page {currentPage}
-      <button onClick={onPreviousPage}>{`<`}</button>
-      <button onClick={onNextPage}>{`>`}</button>
+      </Select>
+      <label>
+        {itemsPerPage} of {totalSize} / current page {currentPage}
+      </label>
+      <Button
+        className="m-5"
+        onClick={onPreviousPage}
+        variant="outlined"
+        color="primary"
+      >
+        {`<`}
+      </Button>
+      <Button
+        className="m-5"
+        onClick={onNextPage}
+        variant="outlined"
+        color="primary"
+      >
+        {`>`}
+      </Button>
     </div>
   );
 };
