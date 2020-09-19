@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 // Material UI
 import Grid from '@material-ui/core/Grid';
 
+import Loading from '../../components/Loading';
 import CardStyled from '../../shared/components/card';
 
 import './Home.css';
@@ -24,6 +25,7 @@ const Home = () => {
   return (
     <div className="home">
       <h2>Top 10 songs</h2>
+      {!popularSongs.length && <Loading />}
       <Grid container spacing={3}>
         {popularSongs.map((song) => (
           <CardStyled track={song} />
